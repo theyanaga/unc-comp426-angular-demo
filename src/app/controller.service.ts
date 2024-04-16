@@ -47,6 +47,10 @@ export class ControllerService {
     return this.state === "passing";
   }
 
+  public isPlaying() : boolean {
+    return this.state === "playing";
+  }
+
   public selectCardToPass(card: Card) : void {
     this.cardsToPass.push(card);
     console.log(this.cardsToPass)
@@ -54,6 +58,10 @@ export class ControllerService {
       this.state = "playing";
       this.cardsToPass = [];
     }
+  }
+
+  public selectCardToPlay(card: Card) : void {
+    this.cards = this.cards.filter(c => (c.rank !== card.rank) || (c.suit !== card.suit));
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControllerService } from '../controller.service';
 
 
@@ -20,6 +20,7 @@ export class Card {
 })
 export class CardComponent {
   @Input('card') card: Card = new Card("", 1);
+  @Output('selectCard') selectCard = new EventEmitter<Card>;
 
   constructor(private controllerService: ControllerService) {}
 
@@ -35,7 +36,7 @@ export class CardComponent {
     return "https://deckofcardsapi.com/static/img/" + this.getRank() + this.getSuit() + ".png";
   }
 
-  public handleSelectionForPass() : void {
-    this.controllerService.selectCardToPass(this.card);
+  public handleSelection() : void {
+    this.selectCard.emit(this.card);
   }
 }

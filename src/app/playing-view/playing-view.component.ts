@@ -3,11 +3,11 @@ import { ControllerService } from '../controller.service';
 import { Card } from '../card/card.component';
 
 @Component({
-  selector: 'app-passing-view',
-  templateUrl: './passing-view.component.html',
-  styleUrls: ['./passing-view.component.css']
+  selector: 'app-playing-view',
+  templateUrl: './playing-view.component.html',
+  styleUrls: ['./playing-view.component.css']
 })
-export class PassingViewComponent {
+export class PlayingViewComponent {
 
   constructor(private controller: ControllerService) {
   }
@@ -16,9 +16,8 @@ export class PassingViewComponent {
     return this.controller.getCards();
   }
 
+  public handleCardSelectionForPlaying(card: Card) {
+    this.controller.selectCardToPlay(card);
 
-  public handleSelectionForPass(card: Card) {
-    this.controller.selectCardToPass(card);
-  } 
-
+  }
 }

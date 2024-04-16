@@ -19,4 +19,9 @@ export class AppComponent {
   public isPassing() : boolean {
     return this.controller.isPassing();
   }
+
+  public isPlaying() : boolean {
+    return this.controller.isPlaying();
+  }
+
 }
