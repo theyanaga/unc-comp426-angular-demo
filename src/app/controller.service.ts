@@ -8,6 +8,7 @@ export class ControllerService {
   private state: string = "initial";
   private name: string = "";
   private cards : Card[] = [];
+  private cardsToPass : Card[] = [];
 
   constructor() {
     let suits = ["H", "S", "D", "C"]
@@ -16,6 +17,7 @@ export class ControllerService {
       return ranks.map(r => new Card(s, r))
     });
    }
+
 
   public getName() : string {
     return this.name;
@@ -43,6 +45,15 @@ export class ControllerService {
 
   public isPassing() : boolean {
     return this.state === "passing";
+  }
+
+  public selectCardToPass(card: Card) : void {
+    this.cardsToPass.push(card);
+    console.log(this.cardsToPass)
+    if (this.cardsToPass.length === 3) {
+      this.state = "playing";
+      this.cardsToPass = [];
+    }
   }
 
 }
