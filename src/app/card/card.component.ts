@@ -29,4 +29,8 @@ export class CardComponent {
   public getRank() : number {
     return this.card.rank;
   }
+
+  public getImageUrl() : string {
+    return "https://deckofcardsapi.com/static/img/" + this.getRank() + this.getSuit() + ".png";
+  }
 }
