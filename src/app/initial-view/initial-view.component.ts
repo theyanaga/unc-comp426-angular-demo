@@ -11,6 +11,8 @@ export class InitialViewComponent {
 
   handleSubmit(s: string) {
     this.controller.setName(s);
-    console.log(this.controller.getName())
+    this.controller.setState("passing");
   }
+  
+
 }

@@ -7,4 +7,5 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <p> App component is working</p>
-<app-initial-view></app-initial-view>
+<app-initial-view *ngIf="isInitial()"></app-initial-view>
+<app-passing-view *ngIf="isPassing()"></app-passing-view>
