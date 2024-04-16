@@ -5,10 +5,12 @@ import { ControllerService } from '../controller.service';
 export class Card {
   suit: string;
   rank: number;
+  isSelected : boolean;
 
   constructor(suit: string, rank: number) {
     this.suit= suit;
     this.rank = rank;
+    this.isSelected = false;
   }
 
 }

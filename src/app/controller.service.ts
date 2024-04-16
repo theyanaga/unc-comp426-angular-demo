@@ -53,9 +53,14 @@ export class ControllerService {
 
   public selectCardToPass(card: Card) : void {
     this.cardsToPass.push(card);
-    console.log(this.cardsToPass)
+    this.cards = this.cards.map(c => {
+      if ((c.suit === card.suit) && (c.rank === card.rank))
+        c.isSelected = true;
+      return c;
+    })
     if (this.cardsToPass.length === 3) {
       this.state = "playing";
+      this.cards = this.cards.map(c => { c.isSelected = false; return c});
       this.cardsToPass = [];
     }
   }

@@ -2,3 +2,7 @@ img {
     width: 100px;
     height: auto;
 }
+
+.selected {
+    background-color: blue;
+}
