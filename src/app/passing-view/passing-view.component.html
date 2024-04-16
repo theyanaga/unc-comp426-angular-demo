@@ -1,1 +1,3 @@
-<p>passing-view works!</p>
+<div *ngFor="let card of getCards()"> 
+    <app-card [card]="card" ></app-card>
+</div>

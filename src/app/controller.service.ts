@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Card } from './card/card.component';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +7,15 @@ import { Injectable } from '@angular/core';
 export class ControllerService {
   private state: string = "initial";
   private name: string = "";
+  private cards : Card[] = [];
 
-  constructor() { }
+  constructor() {
+    let suits = ["H", "S", "D", "C"]
+    let ranks = [2, 3 ,4]
+    this.cards = suits.flatMap(s => {
+      return ranks.map(r => new Card(s, r))
+    });
+   }
 
   public getName() : string {
     return this.name;
@@ -23,6 +31,10 @@ export class ControllerService {
 
   public getState(state : string) {
     return state;
+  }
+
+  public getCards() : Card[] {
+    return this.cards;
   }
 
   public isInitial() : boolean {

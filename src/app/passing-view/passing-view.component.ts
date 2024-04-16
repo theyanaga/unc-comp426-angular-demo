@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ControllerService } from '../controller.service';
+import { Card } from '../card/card.component';
 
 @Component({
   selector: 'app-passing-view',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./passing-view.component.css']
 })
 export class PassingViewComponent {
+
+  constructor(private controller: ControllerService) {
+  }
+
+  public getCards() : Card[] {
+    return this.controller.getCards();
+  }
 
 }
